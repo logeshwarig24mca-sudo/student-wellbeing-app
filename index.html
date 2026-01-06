@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>College Student Wellbeing</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+    
+    <aside class="sidebar">
+        <div class="logo">
+            <i class="ri-heart-pulse-line"></i>
+            <span>Wellbeing</span>
+        </div>
+        <ul class="menu">
+            <li onclick="showPage('assignments')" class="active">
+                <i class="ri-file-list-3-line"></i>
+                <span>Assignments</span>
+            </li>
+            <li onclick="showPage('journal')">
+                <i class="ri-booklet-line"></i>
+                <span>Journal</span>
+            </li>
+            <li onclick="showPage('forum')">
+                <i class="ri-discuss-line"></i>
+                <span>Forum</span>
+            </li>
+            <li onclick="showPage('chatbot')">
+                <i class="ri-chat-3-line"></i>
+                <span>Chatbot</span>
+            </li>
+            <li onclick="showPage('counsellor')">
+                <i class="ri-calendar-line"></i>
+                <span>Counsellor Booking</span>
+            </li>
+            <li onclick="showPage('account')">
+                <i class="ri-user-3-line"></i>
+                <span>Account</span>
+            </li>
+            <li onclick="showPage('crisis')">
+                <i class="ri-alarm-warning-line"></i>
+                <span>Crisis Support</span>
+            </li>
+        </ul>
+    </aside>
+
+    <main class="main">
+        <section id="assignments" class="page active">
+            <div class="assessment-container">
+                <form class="assessment-form">
+
+    <form class="assessment-form">
+
+<div class="question-card">
+    <p class="question-text">1. I feel overwhelmed by my academic responsibilities.</p>
+    <label class="option"><input type="radio" name="q1" value="0" required> Never</label>
+    <label class="option"><input type="radio" name="q1" value="1"> Sometimes</label>
+    <label class="option"><input type="radio" name="q1" value="2"> Often</label>
+    <label class="option"><input type="radio" name="q1" value="3"> Always</label>
+</div>
+
+<div class="question-card">
+    <p class="question-text">2. I am able to manage stress in a healthy way.</p>
+    <label class="option"><input type="radio" name="q2" value="0" required> Strongly Agree</label>
+    <label class="option"><input type="radio" name="q2" value="1"> Agree</label>
+    <label class="option"><input type="radio" name="q2" value="2"> Disagree</label>
+    <label class="option"><input type="radio" name="q2" value="3"> Strongly Disagree</label>
+</div>
+
+<div class="question-card">
+    <p class="question-text">3. I feel motivated to attend classes and complete tasks.</p>
+    <label class="option"><input type="radio" name="q3" value="0" required> Always</label>
+    <label class="option"><input type="radio" name="q3" value="1"> Most of the time</label>
+    <label class="option"><input type="radio" name="q3" value="2"> Rarely</label>
+    <label class="option"><input type="radio" name="q3" value="3"> Never</label>
+</div>
+
+<button type="submit" class="primary submit-assessment">
+    Submit Assessment
+</button>
+</form>
+
+            </div>
+        </section>
+
+        <section id="journal" class="page">
+            <div class="content-card">
+                <textarea placeholder="Today I feel..."></textarea>
+                <button class="primary">Save Entry</button>
+            </div>
+        </section>
+
+        <section id="forum" class="page">
+            <div class="content-card forum-box">
+                <div id="messages">
+                    <p class="msg"><strong>Student:</strong> Exams are making me anxious.</p>
+                </div>
+                <input id="msgInput" placeholder="Type your message..." />
+                <button class="primary" onclick="sendMessage()">Send</button>
+            </div>
+        </section>
+
+        <section id="chatbot" class="page">
+            <div class="content-card">
+                <div class="chat-messages">
+                    <div class="message bot">Hello! How are you feeling today?</div>
+                </div>
+                <div class="chat-input">
+                    <input type="text" placeholder="Type your message...">
+                    <button class="primary">Send</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="counsellor" class="page">
+            <div class="content-card">
+                <h3>Counsellor Booking</h3>
+                <p>Coming Soon...</p>
+            </div>
+        </section>
+
+        <section id="account" class="page">
+            <div class="content-card">
+                <div class="profile-section">
+                    <div class="profile-avatar">
+                        <img id="profileAvatar" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face" alt="Profile">
+                        <button class="upload-btn">Upload Photo</button>
+                    </div>
+                    <div class="profile-info">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" id="profileName" value="John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label>Department</label>
+                            <input type="text" value="Psychology">
+                        </div>
+                        <div class="form-group">
+                            <label>Course</label>
+                            <input type="text" value="MCA">
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" value="johndoe@college.edu">
+                        </div>
+                        <button class="primary save-profile">Save Changes</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="crisis" class="page">
+            <div class="crisis-main">
+                <div class="crisis-hero">
+                    <i class="ri-phone-line"></i>
+                    <h2>Emergency Helpline</h2>
+                    <p>Call immediately if you feel unsafe or in crisis</p>
+                    <div class="helpline-number">9152987821</div>
+                    <button class="crisis-main-btn">Call Now</button>
+                </div>
+                <div class="crisis-resources">
+                    <h3>Additional Resources</h3>
+                    <div class="resources-grid">
+                        <div class="resource-card">
+                            <i class="ri-chat-3-line"></i>
+                            <span>Chat Support</span>
+                        </div>
+                        <div class="resource-card">
+                            <i class="ri-file-text-line"></i>
+                            <span>Crisis Guide</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

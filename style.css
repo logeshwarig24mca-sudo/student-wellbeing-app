@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", "Segoe UI", Arial, sans-serif;
+}
+
+body {
+    background: #eef2f8;
+}
+
+.app {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 260px;
+    background: #f5f7fd;
+    padding: 28px 20px;
+    border-right: 1px solid #e2e8f0;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 700;
+    color: #4f46e5;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.menu {
+    list-style: none;
+}
+
+.menu li {
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    color: #475569;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.menu li:hover {
+    background: #edf2ff;
+}
+
+.menu li.active {
+    background: #f1f5f9;
+    color: #475569;
+}
+
+.menu li.assignment.active {
+    background: #4f46e5;
+    color: #ffffff;
+}
+
+.menu li.assignment.active:hover {
+    background: #4338ca;
+}
+
+.main {
+    flex: 1;
+    padding: 32px 40px;
+}
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+.assessment-container {
+    max-width: 980px;
+}
+
+.question-card {
+    background: #ffffff;
+    padding: 28px 32px;
+    border-radius: 10px;
+    margin-bottom: 26px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.question-text {
+    font-size: 18px;
+    font-weight: 600;
+    color: #0f172a;
+    margin-bottom: 18px;
+}
+
+.option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    font-size: 15px;
+    color: #334155;
+}
+
+.option input {
+    accent-color: #4f46e5;
+}
+
+.primary {
+    background: #4f46e5;
+    color: white;
+    border: none;
+    padding: 14px 30px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.primary:hover {
+    background: #4338ca;
+}
+
+.submit-assessment {
+    margin-top: 20px;
+}

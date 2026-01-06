@@ -1,4 +1,3 @@
-/* ================= PAGE NAVIGATION ================= */
 
 function showPage(id) {
     document.querySelectorAll('.page').forEach(page => {
@@ -6,8 +5,6 @@ function showPage(id) {
     });
     document.getElementById(id).classList.add('active');
 }
-
-/* ================= ASSESSMENT LOGIC ================= */
 
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.querySelector(".assessment-form");
@@ -61,9 +58,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
-
-/* ================= HELPER FUNCTIONS ================= */
-
 function getValue(questionName) {
     const selected = document.querySelector(`input[name="${questionName}"]:checked`);
     return selected ? parseInt(selected.value, 10) : 0;

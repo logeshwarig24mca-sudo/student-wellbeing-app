@@ -1,4 +1,4 @@
-
+// Page navigation
 function showPage(id) {
     document.querySelectorAll('.page').forEach(page => {
         page.classList.remove('active');
@@ -6,63 +6,50 @@ function showPage(id) {
     document.getElementById(id).classList.add('active');
 }
 
+// Run after page loads
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.querySelector(".assessment-form");
     if (!form) return;
 
-    form.addEventListener("submit", async function (e) {
+    form.addEventListener("submit", function (e) {
         e.preventDefault();
 
         /*
-            Likert Scale:
+            Likert Scale (Final Mapping):
             0 = Never / Strongly Agree (healthy)
-            1 = Sometimes
-            2 = Often
+            1 = Sometimes / Agree
+            2 = Often / Disagree
             3 = Always / Strongly Disagree (severe)
         */
 
-        const q1 = getValue("q1");               
-        const q2 = reverseScore(getValue("q2"));
-        const q3 = reverseScore(getValue("q3")); 
+        const q1 = getValue("q1");                // Distress
+        const q2 = reverseScore(getValue("q2")); // Coping
+        const q3 = reverseScore(getValue("q3")); // Motivation
 
-        try {
-            const response = await fetch("http://localhost:5000/api/assessment", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    distress: q1,
-                    coping: q2,
-                    motivation: q3
-                })
-            });
+        // DEMO RISK CALCULATION (No backend)
+        const totalScore = q1 + q2 + q3;
 
-            const data = await response.json();
-
-            if (data.riskLevel === "HIGH_RISK") {
-                alert("⚠️ HIGH RISK DETECTED\nCounsellor will be notified.");
-            } 
-            else if (data.riskLevel === "MODERATE") {
-                alert("Moderate risk detected.\nMonitor student wellbeing.");
-            } 
-            else {
-                alert("No significant risk detected.");
-            }
-
-            form.reset();
-
-        } catch (error) {
-            alert("Server error. Please try again later.");
-            console.error(error);
+        if (totalScore >= 7) {
+            alert("⚠️ HIGH RISK DETECTED\nCounsellor will be notified.");
         }
+        else if (totalScore >= 4) {
+            alert("⚠️ MODERATE RISK DETECTED\nMonitor student wellbeing.");
+        }
+        else {
+            alert("✅ No significant risk detected.");
+        }
+
+        form.reset();
     });
 });
+
+// Get selected radio value
 function getValue(questionName) {
     const selected = document.querySelector(`input[name="${questionName}"]:checked`);
     return selected ? parseInt(selected.value, 10) : 0;
 }
 
+// Reverse scoring for positive questions
 function reverseScore(value) {
     return 3 - value;
 }
